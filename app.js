@@ -4,11 +4,14 @@
  */
 
 var express = require('express');
+var mongoose = require('mongoose');
 // var routes = require('./routes');
 var http = require('http');
 var path = require('path');
 
 var app = express();
+
+mongoose.connect('mongodb://localhost/social_reach');
 
 // all environments
 app.set('port', process.env.PORT || 3000);
