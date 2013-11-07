@@ -1,8 +1,10 @@
 var mongoose = require('mongoose');
+var ObjectId = mongoose.Schema.Types.ObjectId;
 
 var userSchema = new mongoose.Schema({
   email: { type: String, unique: true, index: true, required: true },
-  password_hashed: { type: String, required: true }
+  password_hashed: { type: String, required: true },
+  commitments: [{ type: ObjectId, ref: 'Commitment' }]
 });
 
 var User = mongoose.model('User', userSchema);
